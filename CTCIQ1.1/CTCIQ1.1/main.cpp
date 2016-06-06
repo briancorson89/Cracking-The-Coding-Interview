@@ -11,16 +11,16 @@
 using namespace std;
 
 bool isUniqueCharacters(string str){
-    if(str.length() > 256){
+    if(str.length() > 256){//If string length is higher than unique chars, return false
         return 0;
     }
-    bool anArray [256] = {0};//128 unique ASCII characters
+    bool anArray [256] = {0};//256 unique ASCII characters
     for(int i = 0; i < str.length(); i++){
-        int val = str[i];
-        if(anArray[val]){
+        int val = str[i];//retrieve ASCII code for char
+        if(anArray[val]){//If char has already been set True, string is not unique
             return 0;
         }
-        anArray[val] = 1;
+        anArray[val] = 1;//set char location True
     }
     return 1;
 }
