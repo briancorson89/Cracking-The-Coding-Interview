@@ -3,7 +3,6 @@
 //  CTCIQ1.1
 //
 //  Created by Brian Corson on 6/5/16.
-//  Copyright © 2016 Brian Corson. All rights reserved.
 //
 //1.1 - Implement an algorithm to determine if a string has all unique characters
 //Assumes string has ASCII characters
@@ -16,7 +15,7 @@ bool isUniqueCharacters(string str){
         return 0;
     }
     bool anArray [256] = {0};//128 unique ASCII characters
-    for(int i =0; i < str.length(); i++){
+    for(int i = 0; i < str.length(); i++){
         int val = str[i];
         if(anArray[val]){
             return 0;
@@ -27,7 +26,7 @@ bool isUniqueCharacters(string str){
 }
 
 int main(int argc, const char * argv[]) {
-    string str[] ={"littlemissdismisscan'tmisslikeadetunedrdio", "abcdefg"};//Expect: 0,1
+    string str[] ={"littlemissdismisscan'tmisslikeadetunedradio", "abcdefg"};//Expect: 0,1
     
     for (int i = 0; i < 2; i++)
     {
