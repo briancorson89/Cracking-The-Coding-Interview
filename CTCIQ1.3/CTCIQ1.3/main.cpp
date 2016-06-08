@@ -11,15 +11,12 @@
 using namespace std;
 
 bool isPermutation(string s, string t){
-    if(s.length() != t.length()){//If string lengths are not equal, they are not permutations
-        return 0;
-    }
     sort(s.begin(),s.end());
     sort(t.begin(),t.end());
-    if (s.compare(t) != 0){//compare returns 0 if equal
-        return 0;
+    if (s.compare(t) == 0){//compare returns 0 if equal
+        return 1;
     }
-    return 1;//pass the tests and they are permutations
+    return 0;//pass the tests and they are permutations
 }
 int main(int argc, const char * argv[]) {
     cout << isPermutation("aba","aab") << endl;//expect 1
