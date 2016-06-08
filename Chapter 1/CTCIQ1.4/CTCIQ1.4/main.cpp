@@ -3,7 +3,6 @@
 //  CTCIQ1.4
 //
 //  Created by Brian Corson on 6/7/16.
-//  Copyright © 2016 Brian Corson. All rights reserved.
 //
 //  1.4 - Write a function to replace all spaces in a string with '%20'
 
