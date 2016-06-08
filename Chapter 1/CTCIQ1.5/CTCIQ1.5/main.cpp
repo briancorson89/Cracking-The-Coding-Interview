@@ -30,9 +30,13 @@ string strCompression(string str){
             charCount++;
         }
     }
+    if(str.length() <= newStrIter){
+        return str;
+    }
     return newStr;
 }
 int main(int argc, const char * argv[]) {
     cout << strCompression("aabcccccaaa") << endl;
+    cout << strCompression("abc") << endl;
     return 0;
 }
