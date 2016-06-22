@@ -19,13 +19,13 @@ const int col = 4;
 void rotateMatrix(int matrix[][col]){
     //part one: transpose
     for(int i = 0; i < row; i++) {
-        for(int j= i; j < col; j++) {
+        for(int j = i; j < col; j++) {
             swap(matrix[i][j], matrix[j][i]);
         }
     }
     //part two: reverse row order
     for(int i = 0; i < row; i++) {
-        for(int j = 0; j < col/2; j++) {
+        for(int j = 0; j < 2; j++) {
             swap(matrix[i][j], matrix[i][col-j-1]);
         }
     }
