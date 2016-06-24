@@ -25,7 +25,7 @@ void rotateMatrix(int matrix[][col]){
     }
     //part two: reverse row order
     for(int i = 0; i < row; i++) {
-        for(int j = 0; j < 2; j++) {
+        for(int j = 0; j < 2; j++) {//swap 1st and last column, then 2nd and 3rd column
             swap(matrix[i][j], matrix[i][col-j-1]);
         }
     }
