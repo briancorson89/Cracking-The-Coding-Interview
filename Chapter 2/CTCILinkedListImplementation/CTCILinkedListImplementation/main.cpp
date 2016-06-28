@@ -123,7 +123,11 @@ int main(int argc, const char * argv[]) {
     myList->display();//Expect: 1->2->null
     return 0;
 }
-
+/* Output:
+ This is an Empty List
+ 1->1->2->1->null
+ 1->2->null
+ */
 
 
 
