@@ -10,14 +10,12 @@
 using namespace std;
 
 //Struct for each Node of the linked list
-struct Node
-{
+struct Node{
     int data;//component to hold data
     Node* next;//component to point to the next node
 };
 
-class LinkedList//a collection of Nodes
-{
+class LinkedList{//a collection of Nodes
 public:
     Node* head;//points to head of the list
     Node* tail;//points to tail of the list
