@@ -29,36 +29,30 @@ public:
     
 };
 
-LinkedList::LinkedList()
-{
+LinkedList::LinkedList(){
     this->head = nullptr;//construct an empty list
 }
 
-LinkedList::~LinkedList()
-{
+LinkedList::~LinkedList(){
     Node* current = head;//point to the front of the list
     
-    while (current != 0)//while list has content
-    {//delete node one by one
+    while (current != 0){//while list has content
+        //delete node one by one
         Node* next = current->next;
         delete current;
         current = next;
     }
-    
     head = nullptr;//until list is empty
 }
 
-void LinkedList::insert(int value)
-{
-    if (head == NULL)//for empty list
-    {
+void LinkedList::insert(int value){
+    if (head == NULL){//for empty list
         head = new Node();//create a node
         tail = head;//tail and head points to only node
         head->next = nullptr;//next is null pointer
         head->data = value;//data component in node struct given value
     }
-    else
-    {
+    else{
         tail->next = new Node();//create a node
         tail = tail->next;//tail points to newly created node
         tail->data = value;//give node value
@@ -66,17 +60,14 @@ void LinkedList::insert(int value)
     }
 }
 
-void LinkedList::display()
-{
+void LinkedList::display(){
     Node* temp;
-    if (head == NULL)//display for an empty list
-    {
+    if (head == NULL){//display for an empty list
         cout << "This is an Empty List" << endl;
         return;
     }
     temp = head;//temp emcompasses head node
-    while (temp != NULL)//for all nodes in list
-    {
+    while (temp != NULL){//for all nodes in list
         cout << temp->data << "->";//display data in temp node
         temp = temp->next;//temp emcompasses next node
     }
@@ -85,8 +76,7 @@ void LinkedList::display()
 
 //  Question 2.1 -- Write code to remove duplicates from an unsorted linked list
 void LinkedList::removeDuplicates(Node* head){
-    if (head == NULL)
-    {
+    if (head == NULL){
         return;
     }
     //runner technique
@@ -109,7 +99,6 @@ void LinkedList::removeDuplicates(Node* head){
         current = current->next;//current moves to the next node
     }
 }
-
 
 int main(int argc, const char * argv[]) {
     LinkedList* myList = new LinkedList();
