@@ -121,20 +121,24 @@ void LinkedList::kthToLastDisplay(Node* head, int index){
     }
     cout << "null. Node Count:" << nodeCounter - index + 1 << endl;
 }
+
 int main(int argc, const char * argv[]) {
     LinkedList* myList = new LinkedList();
     myList->display();//Expect: This is an Empty List. Node Count:0
     myList->kthToLastDisplay(myList->head, 1);//Expect: List is not long enough for function to succeed
     myList->insert(1);
+    myList->insert(2);
     myList->insert(1);
     myList->insert(2);
     myList->insert(1);
     myList->insert(12);
+    myList->insert(2);
     myList->insert(11);
+    myList->insert(2);
     myList->insert(100);
     myList->insert(2);
-    myList->display();//1->1->2->1->12->11->100->2->null. Node count:8
-    myList->kthToLastDisplay(myList->head, 5);//Expect: KthToLastDisplay(5):12->11->100->2->null. Node Count:4
+    myList->display();//1->2->1->2->1->12->2->11->2->100->2->null. Node count:11
+    myList->kthToLastDisplay(myList->head, 5);//Expect:KthToLastDisplay(5):1->12->2->11->2->100->2->null. Node Count:7
     myList->removeDuplicates(myList->head);
     myList->display();//Expect: 1->2->12->11->100->null. Node count:5
     delete myList;
@@ -143,8 +147,8 @@ int main(int argc, const char * argv[]) {
 /* Output:
  This is an Empty List. Node Count:0
  List is not long enough for function to succeed
- 1->1->2->1->12->11->100->2->null. Node count:8
- KthToLastDisplay(5):12->11->100->2->null. Node Count:4
+ 1->2->1->2->1->12->2->11->2->100->2->null. Node count:11
+ KthToLastDisplay(5):1->12->2->11->2->100->2->null. Node Count:7
  1->2->12->11->100->null. Node count:5
  */
 
