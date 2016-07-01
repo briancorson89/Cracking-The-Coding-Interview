@@ -25,6 +25,7 @@ public:
     void display();//display the list
     void removeDuplicates(Node* head);//Question 2.1
     void kthToLastDisplay(Node* head, int index);//Question 2.2
+    void removeNode(Node* node);//Question 2.3
 private:
     int nodeCounter;//for question 2.2
 };
@@ -121,6 +122,18 @@ void LinkedList::kthToLastDisplay(Node* head, int index){
     }
     cout << "null. Node Count:" << nodeCounter - index + 1 << endl;
 }
+//Question 2.3 -- Implement an algorithm to delete a node in the middle of a singly linked list given only access to the node
+void LinkedList::removeNode(Node* node){
+    if(node == NULL || node->next == NULL){//cannot delete if null or last node in list
+        cout <<  "Last node cannot be deleted. Enter node from middle of the list" << endl;
+        return;//get message and leave method
+    }
+    Node* temp = node->next;//typical node delete: save next node in temp node
+    node->data = temp->data;//rewrite data
+    node->next = temp->next;//repoint pointer
+    delete temp;//delete
+    nodeCounter--;//decrement nodes
+}
 
 int main(int argc, const char * argv[]) {
     LinkedList* myList = new LinkedList();
@@ -141,6 +154,15 @@ int main(int argc, const char * argv[]) {
     myList->kthToLastDisplay(myList->head, 5);//Expect:KthToLastDisplay(5):1->12->2->11->2->100->2->null. Node Count:7
     myList->removeDuplicates(myList->head);
     myList->display();//Expect: 1->2->12->11->100->null. Node count:5
+    
+    Node* temp = myList->head->next->next->next->next;
+    myList->removeNode(temp);//expect:Last node cannot be deleted. Enter node from middle of the list
+    myList->display();//expect:1->2->12->11->100->null. Node count:5
+
+    temp = myList->head->next->next;
+    myList->removeNode(temp);//expect 12 to be deleted
+    myList->display();//1->2->11->100->null. Node count:4
+
     delete myList;
     return 0;
 }
@@ -150,13 +172,10 @@ int main(int argc, const char * argv[]) {
  1->2->1->2->1->12->2->11->2->100->2->null. Node count:11
  KthToLastDisplay(5):1->12->2->11->2->100->2->null. Node Count:7
  1->2->12->11->100->null. Node count:5
+ Last node cannot be deleted. Enter node from middle of the list
+ 1->2->12->11->100->null. Node count:5
+ 1->2->11->100->null. Node count:4
  */
-
-
-
-
-
-
 
 
 
